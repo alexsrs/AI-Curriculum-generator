@@ -1,43 +1,37 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Dependencies
+node_modules/
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# Environment variables (NUNCA commitar!)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
 
-# testing
-/coverage
+# Next.js
+.next/
+out/
 
-# next.js
-/.next/
-/out/
+# Build outputs
+dist/
+build/
 
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 
-# local env files
-.env*.local
-.env
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-
-# database
-/prisma/dev.db
-/prisma/dev.db-journal
+# Database
+*.db
+*.db-journal
 
 # IDE
 .vscode/
@@ -45,14 +39,13 @@ next-env.d.ts
 *.swp
 *.swo
 
-# logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
+# OS
+.DS_Store
+Thumbs.db
 
-# temp
-.tmp
-.temp
+# Vercel
+.vercel
+
+# Temporary folders
+tmp/
+temp/
