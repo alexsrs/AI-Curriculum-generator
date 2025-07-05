@@ -12,10 +12,10 @@ Um gerador de currículos moderno e inteligente que utiliza IA para criar resumo
 - ✅ **Exportação PDF**: Download do currículo em PDF
 - ✅ **Painel do Usuário**: Gerenciamento de currículos salvos
 
-### Planos
-- **Gratuito**: 1 template, 1 PDF/mês
-- **Premium**: Todos os templates, downloads ilimitados, IA ilimitada
-- **Preço**: R$9,90/mês ou R$19,90 vitalício
+### Planos e Monetização
+- **Gratuito**: 3 downloads PDF/mês, 2 templates, 5 gerações de IA/mês
+- **Premium**: Downloads ilimitados, 6+ templates, IA ilimitada, suporte prioritário
+- **Preços**: R$ 5,90/mês ou R$ 19,90/ano (economia de 67%)
 
 ## 🛠️ Stack Tecnológica
 
@@ -29,23 +29,56 @@ Um gerador de currículos moderno e inteligente que utiliza IA para criar resumo
 
 ## 🚀 Como Executar
 
-1. Clone o repositório
-2. Instale as dependências:
+### Configuração Rápida
+
+1. **Clone o repositório**
+   ```bash
+   git clone <url-do-repo>
+   cd AI-Curriculum-generator
+   ```
+
+2. **Instale as dependências**
    ```bash
    npm install
    ```
 
-3. Configure as variáveis de ambiente (copie `.env.example` para `.env.local`)
-
-4. Configure o banco de dados:
+3. **Configure o Stripe (Pagamentos)**
    ```bash
-   npx prisma db push
+   # Configuração automática
+   node setup-stripe.js
+   
+   # OU manual: copie .env.example para .env.local
+   cp .env.example .env.local
+   ```
+   
+   📋 **Para configuração manual do Stripe, consulte**: `STRIPE-QUICKSTART.md`
+
+4. **Configure o banco de dados**
+   ```bash
+   npx prisma migrate dev
    ```
 
-5. Execute o projeto:
+5. **Execute o projeto**
    ```bash
    npm run dev
    ```
+
+6. **Teste os pagamentos**
+   - Acesse: http://localhost:3000/pricing
+   - Use cartão de teste: `4242 4242 4242 4242`
+
+### Scripts Úteis
+
+```bash
+# Testar configuração do Stripe
+node test-stripe-config.js
+
+# Reset do banco de dados
+npx prisma migrate reset
+
+# Visualizar banco de dados
+npx prisma studio
+```
 
 ## 📁 Estrutura do Projeto
 
@@ -87,11 +120,15 @@ GOOGLE_CLIENT_SECRET="your_google_client_secret"
 # OpenAI
 OPENAI_API_KEY="your_openai_api_key"
 
-# Stripe
-STRIPE_PUBLISHABLE_KEY="your_stripe_publishable_key"
-STRIPE_SECRET_KEY="your_stripe_secret_key"
-STRIPE_WEBHOOK_SECRET="your_stripe_webhook_secret"
+# Stripe (Pagamentos)
+STRIPE_PUBLISHABLE_KEY="pk_test_your_stripe_publishable_key"
+STRIPE_SECRET_KEY="sk_test_your_stripe_secret_key"
+STRIPE_WEBHOOK_SECRET="whsec_your_webhook_secret"
+STRIPE_PREMIUM_MONTHLY_PRICE_ID="price_your_monthly_plan_id"
+STRIPE_PREMIUM_YEARLY_PRICE_ID="price_your_yearly_plan_id"
 ```
+
+📋 **Para configuração detalhada**: consulte `docs/STRIPE-SETUP.md`
 
 ## 📈 Roadmap
 

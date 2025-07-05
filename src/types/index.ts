@@ -207,3 +207,36 @@ export interface Analytics {
     downloads: number
   }[]
 }
+
+// Curriculum types (based on Prisma schema)
+export interface Curriculum {
+  id: string
+  title: string
+  template: string
+  userId: string
+  createdAt: Date
+  updatedAt: Date
+  
+  // Relations
+  personalInfo?: PersonalInfo
+  experiences?: Experience[]
+  educations?: Education[]
+  skills?: Skill[]
+  languages?: Language[]
+}
+
+export interface PersonalInfo {
+  id: string
+  curriculumId: string
+  fullName: string
+  email: string
+  phone?: string
+  address?: string
+  city?: string
+  state?: string
+  zipCode?: string
+  linkedin?: string
+  github?: string
+  website?: string
+  summary?: string
+}
