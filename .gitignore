@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Dependencies
 node_modules/
 
@@ -49,3 +50,11 @@ Thumbs.db
 # Temporary folders
 tmp/
 temp/
+=======
+node_modules
+
+/.env.local
+>>>>>>> origin/master
+
+/.env.local
+/dist

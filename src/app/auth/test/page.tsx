@@ -1,7 +1,9 @@
 'use client'
 
 import { useSession, signIn, signOut } from 'next-auth/react'
-import { Button } from '@/components/ui/button'
+
+// Update the import path below if your Button component is located elsewhere
+import { Button } from '../../../components/ui/button'
 
 export default function AuthTestPage() {
   const { data: session, status } = useSession()
